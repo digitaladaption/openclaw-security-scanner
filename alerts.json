@@ -1,0 +1,12 @@
+{
+  "generated": "2026-01-30T21:16:42.915199",
+  "alerts": [
+    {
+      "type": "new_cve",
+      "severity": "High",
+      "cve_id": "CVE-2024-1234",
+      "description": "Remote code execution in OpenClaw",
+      "detected_at": "2026-01-30T21:16:42.915033"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "timestamp": "2026-01-30T21:16:42.876618",
+  "sources": {
+    "X": [
+      {
+        "source": "X",
+        "query": "OpenClaw security",
+        "post": "Sample finding for OpenClaw security",
+        "url": "https://x.com/example/status/123",
+        "severity": "Medium"
+      },
+      {
+        "source": "X",
+        "query": "Clawdbot vulnerability",
+        "post": "Sample finding for Clawdbot vulnerability",
+        "url": "https://x.com/example/status/123",
+        "severity": "Medium"
+      }
+    ],
+    "Reddit": [
+      {
+        "source": "Reddit",
+        "query": "LocalLLM security",
+        "post": "Reddit discussion about LocalLLM security",
+        "url": "https://reddit.com/r/example/comments/123",
+        "severity": "Medium"
+      },
+      {
+        "source": "Reddit",
+        "query": "OpenClaw hack",
+        "post": "Reddit discussion about OpenClaw hack",
+        "url": "https://reddit.com/r/example/comments/123",
+        "severity": "Medium"
+      }
+    ],
+    "Moltbook": [
+      {
+        "source": "Moltbook",
+        "query": "security",
+        "post": "Moltbook post about security",
+        "url": "https://moltbook.com/example",
+        "severity": "Medium"
+      },
+      {
+        "source": "Moltbook",
+        "query": "vulnerability",
+        "post": "Moltbook post about vulnerability",
+        "url": "https://moltbook.com/example",
+        "severity": "Medium"
+      }
+    ]
+  },
+  "cves": [
+    {
+      "cve_id": "CVE-2024-XXXX",
+      "description": "Potential injection in command execution",
+      "severity": "High",
+      "tracked_at": "2026-01-30T21:16:42.876638"
+    }
+  ],
+  "vulnerabilities": []
+}
