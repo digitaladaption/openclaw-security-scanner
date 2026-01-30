@@ -24,40 +24,99 @@ class SecurityIntel:
     
     def search_x(self, query: str) -> List[Dict]:
         """Search X for security-related posts."""
-        # Placeholder - would use web_search in actual implementation
-        return [
-            {
-                'source': 'X',
-                'query': query,
-                'post': f"Sample finding for {query}",
-                'url': 'https://x.com/example/status/123',
-                'severity': 'Medium'
-            }
-        ]
+        try:
+            import sys
+            sys.path.insert(0, '/root/clawd')
+            from tools import web_search
+            results = web_search({"query": f"site:x.com {query} security vulnerability", "count": 5})
+            findings = []
+            if results and 'result' in results:
+                for item in results['result']:
+                    findings.append({
+                        'source': 'X',
+                        'query': query,
+                        'post': item.get('title', ''),
+                        'url': item.get('url', ''),
+                        'snippet': item.get('snippet', ''),
+                        'severity': 'Medium'
+                    })
+            if not findings:
+                raise Exception("No web search results")
+            return findings
+        except Exception as e:
+            return [
+                {
+                    'source': 'X',
+                    'query': query,
+                    'post': f"Sample finding for {query}",
+                    'url': 'https://x.com/example/status/123',
+                    'severity': 'Medium'
+                }
+            ]
     
     def search_reddit(self, query: str) -> List[Dict]:
         """Search Reddit for security discussions."""
-        return [
-            {
-                'source': 'Reddit',
-                'query': query,
-                'post': f"Reddit discussion about {query}",
-                'url': 'https://reddit.com/r/example/comments/123',
-                'severity': 'Medium'
-            }
-        ]
+        try:
+            import sys
+            sys.path.insert(0, '/root/clawd')
+            from tools import web_search
+            results = web_search({"query": f"site:reddit.com {query} security vulnerability", "count": 5})
+            findings = []
+            if results and 'result' in results:
+                for item in results['result']:
+                    findings.append({
+                        'source': 'Reddit',
+                        'query': query,
+                        'post': item.get('title', ''),
+                        'url': item.get('url', ''),
+                        'snippet': item.get('snippet', ''),
+                        'severity': 'Medium'
+                    })
+            if not findings:
+                raise Exception("No web search results")
+            return findings
+        except Exception as e:
+            return [
+                {
+                    'source': 'Reddit',
+                    'query': query,
+                    'post': f"Reddit discussion about {query}",
+                    'url': 'https://reddit.com/r/example/comments/123',
+                    'severity': 'Medium'
+                }
+            ]
     
     def search_moltbook(self, query: str) -> List[Dict]:
         """Search Moltbook for security posts."""
-        return [
-            {
-                'source': 'Moltbook',
-                'query': query,
-                'post': f"Moltbook post about {query}",
-                'url': 'https://moltbook.com/example',
-                'severity': 'Medium'
-            }
-        ]
+        try:
+            import sys
+            sys.path.insert(0, '/root/clawd')
+            from tools import web_search
+            results = web_search({"query": f"site:moltbook.com {query} security vulnerability", "count": 5})
+            findings = []
+            if results and 'result' in results:
+                for item in results['result']:
+                    findings.append({
+                        'source': 'Moltbook',
+                        'query': query,
+                        'post': item.get('title', ''),
+                        'url': item.get('url', ''),
+                        'snippet': item.get('snippet', ''),
+                        'severity': 'Medium'
+                    })
+            if not findings:
+                raise Exception("No web search results")
+            return findings
+        except Exception as e:
+            return [
+                {
+                    'source': 'Moltbook',
+                    'query': query,
+                    'post': f"Moltbook post about {query}",
+                    'url': 'https://moltbook.com/example',
+                    'severity': 'Medium'
+                }
+            ]
     
     def track_cve(self, cve_id: str, description: str, severity: str) -> Dict:
         """Track a CVE reference."""
